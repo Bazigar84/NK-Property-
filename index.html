@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -10,6 +9,7 @@
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: Arial, sans-serif;
       background: #f5f7f4;
@@ -33,11 +33,37 @@
         url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85")
         center/cover;
       color: white;
-      padding: 90px 7%;
-      text-align: center;
+      padding: 70px 7%;
     }
-    .hero h1 { font-size: clamp(32px, 5vw, 52px); margin-bottom: 12px; }
+    .hero-inner {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 42px;
+    }
+    .hero-copy { text-align: left; }
+    .hero h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.15; margin-bottom: 16px; }
     .hero p { font-size: 18px; margin-bottom: 25px; }
+    .hero-photo-wrap {
+      justify-self: end;
+      width: min(100%, 330px);
+      padding: 8px;
+      border: 1px solid #f3d58b99;
+      border-radius: 22px;
+      background: #ffffff18;
+      box-shadow: 0 18px 50px #0004;
+      transform: rotate(1deg);
+    }
+    .hero-photo {
+      display: block;
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      object-position: center 25%;
+      border-radius: 16px;
+    }
     .btn {
       display: inline-block;
       background: #20b65b;
@@ -49,8 +75,24 @@
       font-weight: bold;
       cursor: pointer;
       text-align: center;
+      transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
     }
-    .btn:hover { background: #159447; }
+    .btn:hover {
+      background: #159447;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 22px #20b65b55;
+    }
+    .btn:active { transform: translateY(0) scale(.98); }
+    .wa-animated {
+      animation: waPulse 2s infinite;
+      box-shadow: 0 0 0 0 #20b65b77;
+    }
+    .wa-animated:hover { animation-play-state: paused; }
+    @keyframes waPulse {
+      0% { box-shadow: 0 0 0 0 #20b65b77; }
+      70% { box-shadow: 0 0 0 12px #20b65b00; }
+      100% { box-shadow: 0 0 0 0 #20b65b00; }
+    }
     .container { max-width: 1200px; margin: auto; padding: 45px 18px; }
     .section-title { text-align: center; margin-bottom: 25px; }
     .section-title h2 { font-size: 30px; color: #153d2c; }
@@ -104,10 +146,19 @@
       border-radius: 30px;
       box-shadow: 0 3px 12px #0003;
     }
+    @media (max-width: 700px) {
+      .hero { padding: 55px 18px; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 28px; }
+      .hero-copy { text-align: center; }
+      .hero-photo-wrap { justify-self: center; width: min(80%, 280px); }
+      .hero-photo { height: 300px; }
+    }
     @media (max-width: 480px) {
       header { justify-content: center; text-align: center; }
-      .hero { padding: 65px 18px; }
       .hero p { font-size: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
@@ -118,15 +169,22 @@
     <div class="logo">NK PROPERTY</div>
     <p>YOUR TRUSTED PROPERTY PARTNER</p>
   </div>
-  <a class="btn" href="https://wa.me/919785480342?text=Namaste%20NK%20Property" target="_blank" rel="noopener">
+  <a class="btn wa-animated" href="https://wa.me/919785480342?text=Namaste%20NK%20Property" target="_blank" rel="noopener">
     WhatsApp Karein
   </a>
 </header>
 
 <section class="hero">
-  <h1>Apni Zameen, Apna Sapna</h1>
-  <p>Rajasthan mein apne liye sahi plot chunein.</p>
-  <a class="btn" href="#properties">Plots Dekhein ↓</a>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1>Apni Zameen, Apna Plot</h1>
+      <p>Rajasthan mein apne liye sahi plot chunein.</p>
+      <a class="btn" href="#properties">Plots Dekhein ↓</a>
+    </div>
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="owner-photo.png" alt="NK Property owner">
+    </div>
+  </div>
 </section>
 
 <main class="container" id="properties">
@@ -146,92 +204,78 @@
   </div>
 
   <div class="grid" id="propertyGrid">
-
     <article class="card" data-location="karwar">
-      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
-           alt="Karwar ke plot ke liye representative land photo" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Karwar ke plot ke liye representative land photo" loading="lazy">
       <div class="card-body">
         <h3>Plot in Karwar</h3>
         <p class="location">📍 Karwar, Rajasthan</p>
         <p>Residential plot ki details aur location ki jaankari paayein.</p>
         <p class="price">Price: WhatsApp par poochhein</p>
-        <a class="btn wa-link" data-place="Karwar" target="_blank" rel="noopener"
-           href="https://wa.me/919785480342">WhatsApp Enquiry</a>
+        <a class="btn wa-link wa-animated" data-place="Karwar" target="_blank" rel="noopener" href="https://wa.me/919785480342">WhatsApp Enquiry</a>
       </div>
     </article>
 
     <article class="card" data-location="indragarh">
-      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
-           alt="Indragarh property ke liye representative land photo" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Indragarh property ke liye representative land photo" loading="lazy">
       <div class="card-body">
         <h3>Plot in Indragarh</h3>
         <p class="location">📍 Indragarh, Rajasthan</p>
         <p>Land aur residential plot ki jaankari ke liye sampark karein.</p>
         <p class="price">Price: WhatsApp par poochhein</p>
-        <a class="btn wa-link" data-place="Indragarh" target="_blank" rel="noopener"
-           href="https://wa.me/919785480342">WhatsApp Enquiry</a>
+        <a class="btn wa-link wa-animated" data-place="Indragarh" target="_blank" rel="noopener" href="https://wa.me/919785480342">WhatsApp Enquiry</a>
       </div>
     </article>
 
     <article class="card" data-location="dhikoliya">
-      <img src="https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=800&q=80"
-           alt="Dhikoliya property ke liye representative land photo" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=800&q=80" alt="Dhikoliya property ke liye representative land photo" loading="lazy">
       <div class="card-body">
         <h3>Plot in Dhikoliya</h3>
         <p class="location">📍 Dhikoliya, Rajasthan</p>
         <p>Residential land ke baare mein aur details paayein.</p>
         <p class="price">Price: WhatsApp par poochhein</p>
-        <a class="btn wa-link" data-place="Dhikoliya" target="_blank" rel="noopener"
-           href="https://wa.me/919785480342">WhatsApp Enquiry</a>
+        <a class="btn wa-link wa-animated" data-place="Dhikoliya" target="_blank" rel="noopener" href="https://wa.me/919785480342">WhatsApp Enquiry</a>
       </div>
     </article>
 
     <article class="card" data-location="uniara">
-      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
-           alt="Uniara property ke liye representative land photo" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Uniara property ke liye representative land photo" loading="lazy">
       <div class="card-body">
         <h3>Plot in Uniara</h3>
         <p class="location">📍 Uniara, Tonk, Rajasthan</p>
         <p>Plot ki availability, size aur price ki jaankari lein.</p>
         <p class="price">Price: WhatsApp par poochhein</p>
-        <a class="btn wa-link" data-place="Uniara" target="_blank" rel="noopener"
-           href="https://wa.me/919785480342">WhatsApp Enquiry</a>
+        <a class="btn wa-link wa-animated" data-place="Uniara" target="_blank" rel="noopener" href="https://wa.me/919785480342">WhatsApp Enquiry</a>
       </div>
     </article>
-
   </div>
 
   <section class="about">
     <h2>NK Property ke saath sampark karein</h2>
     <p>Plot ki price, size aur location ki details ke liye humein message karein.</p>
     <br>
-    <a class="btn" href="https://wa.me/919785480342?text=Namaste%20NK%20Property%2C%20mujhe%20plots%20ki%20details%20chahiye."
-       target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+    <a class="btn wa-animated" href="https://wa.me/919785480342?text=Namaste%20NK%20Property%2C%20mujhe%20plots%20ki%20details%20chahiye." target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
   </section>
 </main>
 
 <footer>
   <h2>NK PROPERTY</h2>
-  <p>Rajasthan Property & Residential Plots</p>
+  <p>Rajasthan Property &amp; Residential Plots</p>
   <p>WhatsApp: +91 97854 80342</p>
   <p>© <span id="year"></span> NK Property. All rights reserved.</p>
 </footer>
 
-<a class="btn float-wa"
-   href="https://wa.me/919785480342?text=Namaste%20NK%20Property%2C%20mujhe%20property%20ki%20details%20chahiye."
-   target="_blank" rel="noopener" aria-label="WhatsApp par sampark karein">
+<a class="btn float-wa wa-animated" href="https://wa.me/919785480342?text=Namaste%20NK%20Property%2C%20mujhe%20property%20ki%20details%20chahiye." target="_blank" rel="noopener" aria-label="WhatsApp par sampark karein">
   💬 WhatsApp
 </a>
 
 <script>
   const filter = document.getElementById("locationFilter");
-  const cards = document.querySelectorAll(".card");
+  const cards = document.querySelectorAll("#propertyGrid .card");
 
   filter.addEventListener("change", function () {
     cards.forEach(function (card) {
       card.style.display =
-        filter.value === "all" ||
-        card.dataset.location === filter.value
+        filter.value === "all" || card.dataset.location === filter.value
           ? ""
           : "none";
     });
@@ -247,8 +291,7 @@
       );
   });
 
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
