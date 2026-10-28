@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#153d2c">
+  <title>NK Property | Rajasthan Plots</title>
+  <meta name="description" content="NK Property - Rajasthan mein residential plots aur zameen ki jaankari. WhatsApp par sampark karein.">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7f4;
+      color: #203027;
+      line-height: 1.6;
+    }
+    header {
+      background: #153d2c;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .logo { font-size: 27px; font-weight: bold; color: #f3d58b; }
+    header p { font-size: 12px; letter-spacing: 1px; }
+    .hero {
+      background: linear-gradient(90deg, #102d22ee, #153d2c77),
+        url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+      color: white;
+      padding: 90px 7%;
+      text-align: center;
+    }
+    .hero h1 { font-size: clamp(32px, 5vw, 52px); margin-bottom: 12px; }
+    .hero p { font-size: 18px; margin-bottom: 25px; }
+    .btn {
+      display: inline-block;
+      background: #20b65b;
+      color: white;
+      padding: 12px 18px;
+      border: 0;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+    .btn:hover { background: #159447; }
+    .container { max-width: 1200px; margin: auto; padding: 45px 18px; }
+    .section-title { text-align: center; margin-bottom: 25px; }
+    .section-title h2 { font-size: 30px; color: #153d2c; }
+    .filters { text-align: center; margin-bottom: 30px; }
+    select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      width: min(100%, 320px);
+      font-size: 16px;
+      background: white;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 23px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 15px #00000010;
+      transition: transform .2s;
+    }
+    .card:hover { transform: translateY(-4px); }
+    .card img { width: 100%; height: 205px; object-fit: cover; display: block; }
+    .card-body { padding: 18px; }
+    .card h3 { color: #153d2c; font-size: 22px; margin-bottom: 5px; }
+    .location { color: #647067; font-size: 14px; margin-bottom: 10px; }
+    .price { font-weight: bold; margin: 12px 0; }
+    .card .btn { display: block; width: 100%; }
+    .about {
+      background: white;
+      padding: 30px 22px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 35px;
+    }
+    footer {
+      background: #153d2c;
+      color: white;
+      padding: 30px 18px;
+      text-align: center;
+    }
+    footer p { margin: 5px 0; }
+    .float-wa {
+      position: fixed;
+      bottom: 20px;
+      right: 18px;
+      z-index: 10;
+      border-radius: 30px;
+      box-shadow: 0 3px 12px #0003;
+    }
+    @media (max-width: 480px) {
+      header { justify-content: center; text-align: center; }
+      .hero { padding: 65px 18px; }
+      .hero p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="logo">NK PROPERTY</div>
+    <p>YOUR TRUSTED PROPERTY PARTNER</p>
+  </div>
+  <a class="btn" href="https://wa.me/919785480342?text=Namaste%20NK%20Property" target="_blank" rel="noopener">
+    WhatsApp Karein
+  </a>
+</header>
+
+<section class="hero">
+  <h1>Apni Zameen, Apna Sapna</h1>
+  <p>Rajasthan mein apne liye sahi plot chunein.</p>
+  <a class="btn" href="#properties">Plots Dekhein ↓</a>
+</section>
+
+<main class="container" id="properties">
+  <div class="section-title">
+    <h2>Hamare Available Plots</h2>
+    <p>Apni pasand ki location chunein aur WhatsApp par jaankari lein.</p>
+  </div>
+
+  <div class="filters">
+    <select id="locationFilter" aria-label="Location chunein">
+      <option value="all">Sabhi Locations</option>
+      <option value="karwar">Karwar</option>
+      <option value="indragarh">Indragarh</option>
+      <option value="dhikoliya">Dhikoliya</option>
+      <option value="uniara">Uniara</option>
+    </select>
+  </div>
+
+  <div class="grid" id="propertyGrid">
+
+    <article class="card" data-location="karwar">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
+           alt="Karwar ke plot ke liye representative land photo" loading="lazy">
+      <div class="card-body">
+        <h3>Plot in Karwar</h3>
+        <p class="location">📍 Karwar, Rajasthan</p>
+        <p>Residential plot ki details aur location ki jaankari paayein.</p>
+        <p class="price">Price: WhatsApp par poochhein</p>
+        <a class="btn wa-link" data-place="Karwar" target="_blank" rel="noopener"
+           href="https://wa.me/919785480342">WhatsApp Enquiry</a>
+      </div>
+    </article>
+
+    <article class="card" data-location="indragarh">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+           alt="Indragarh property ke liye representative land photo" loading="lazy">
+      <div class="card-body">
+        <h3>Plot in Indragarh</h3>
+        <p class="location">📍 Indragarh, Rajasthan</p>
+        <p>Land aur residential plot ki jaankari ke liye sampark karein.</p>
+        <p class="price">Price: WhatsApp par poochhein</p>
+        <a class="btn wa-link" data-place="Indragarh" target="_blank" rel="noopener"
+           href="https://wa.me/919785480342">WhatsApp Enquiry</a>
+      </div>
+    </article>
+
+    <article class="card" data-location="dhikoliya">
+      <img src="https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=800&q=80"
+           alt="Dhikoliya property ke liye representative land photo" loading="lazy">
+      <div class="card-body">
+        <h3>Plot in Dhikoliya</h3>
+        <p class="location">📍 Dhikoliya, Rajasthan</p>
+        <p>Residential land ke baare mein aur details paayein.</p>
+        <p class="price">Price: WhatsApp par poochhein</p>
+        <a class="btn wa-link" data-place="Dhikoliya" target="_blank" rel="noopener"
+           href="https://wa.me/919785480342">WhatsApp Enquiry</a>
+      </div>
+    </article>
+
+    <article class="card" data-location="uniara">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
+           alt="Uniara property ke liye representative land photo" loading="lazy">
+      <div class="card-body">
+        <h3>Plot in Uniara</h3>
+        <p class="location">📍 Uniara, Tonk, Rajasthan</p>
+        <p>Plot ki availability, size aur price ki jaankari lein.</p>
+        <p class="price">Price: WhatsApp par poochhein</p>
+        <a class="btn wa-link" data-place="Uniara" target="_blank" rel="noopener"
+           href="https://wa.me/919785480342">WhatsApp Enquiry</a>
+      </div>
+    </article>
+
+  </div>
+
+  <section class="about">
+    <h2>NK Property ke saath sampark karein</h2>
+    <p>Plot ki price, size aur location ki details ke liye humein message karein.</p>
+    <br>
+    <a class="btn" href="https://wa.me/919785480342?text=Namaste%20NK%20Property%2C%20mujhe%20plots%20ki%20details%20chahiye."
+       target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+  </section>
+</main>
+
+<footer>
+  <h2>NK PROPERTY</h2>
+  <p>Rajasthan Property & Residential Plots</p>
+  <p>WhatsApp: +91 97854 80342</p>
+  <p>© <span id="year"></span> NK Property. All rights reserved.</p>
+</footer>
+
+<a class="btn float-wa"
+   href="https://wa.me/919785480342?text=Namaste%20NK%20Property%2C%20mujhe%20property%20ki%20details%20chahiye."
+   target="_blank" rel="noopener" aria-label="WhatsApp par sampark karein">
+  💬 WhatsApp
+</a>
+
+<script>
+  const filter = document.getElementById("locationFilter");
+  const cards = document.querySelectorAll(".card");
+
+  filter.addEventListener("change", function () {
+    cards.forEach(function (card) {
+      card.style.display =
+        filter.value === "all" ||
+        card.dataset.location === filter.value
+          ? ""
+          : "none";
+    });
+  });
+
+  document.querySelectorAll(".wa-link").forEach(function (link) {
+    const place = link.dataset.place;
+    link.href =
+      "https://wa.me/919785480342?text=" +
+      encodeURIComponent(
+        "Namaste NK Property, mujhe " + place +
+        " Rajasthan ke plot ki details, price aur location chahiye."
+      );
+  });
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
