@@ -2,10 +2,10 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#12305a">
   <title>NK Properties | Tonk, Uniara, Aligarh Plots & Makaan</title>
-  <meta name="description" content="NK Properties - Buy, Sell, Rent, Invest. Tonk, Uniara, Aligarh aur Rajasthan mein plot, makaan, dukaan aur krishi bhoomi. Apni property free mein dalein ya WhatsApp par sampark karein.">
+  <meta name="description" content="NK Properties - Buy, Sell. Tonk, Uniara, Aligarh aur Rajasthan mein plot, makaan, dukaan aur krishi bhoomi. Apni property free mein dalein ya WhatsApp par sampark karein.">
 
   <style>
     :root {
@@ -15,99 +15,123 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     [hidden] { display: none !important; }
-    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
-    body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    html { scroll-behavior: smooth; scroll-padding-top: 60px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+    body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-tap-highlight-color: transparent; }
+    img, iframe, video { max-width: 100%; }
     .vh { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
 
     /* ===== WhatsApp button ===== */
-    .btn-wa { position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, #2be070, var(--wa-dark)); color: #fff; border: 0; border-radius: 50px; padding: 13px 24px; font-size: 16px; font-weight: bold; text-decoration: none; cursor: pointer; text-align: center; box-shadow: 0 6px 18px #25d36659; animation: waPulse 2.2s infinite; transition: transform .25s ease, box-shadow .25s ease, filter .25s ease; }
-    .btn-wa svg { width: 22px; height: 22px; flex-shrink: 0; animation: waWiggle 3s ease-in-out infinite; transform-origin: 50% 70%; }
-    .btn-wa::after { content: ""; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; background: linear-gradient(120deg, transparent, #ffffff66, transparent); transform: skewX(-20deg); animation: waShine 3.5s infinite; }
-    .btn-wa:hover { transform: translateY(-4px) scale(1.06); box-shadow: 0 14px 30px #25d36680; filter: brightness(1.07); animation-play-state: paused; }
-    .btn-wa:hover svg { animation: waWiggle .6s ease-in-out infinite; }
-    .btn-wa:active { transform: translateY(0) scale(.96); }
+    .btn-wa { position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, #2be070, var(--wa-dark)); color: #fff; border: 0; border-radius: 50px; padding: 12px 22px; min-height: 44px; font-size: 16px; font-weight: bold; text-decoration: none; cursor: pointer; text-align: center; box-shadow: 0 6px 18px #25d36659; transition: transform .25s ease, box-shadow .25s ease, filter .25s ease; }
+    .btn-wa svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .btn-wa:active { transform: scale(.97); }
     .btn-wa:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
-    .btn-wa:disabled { opacity: .6; cursor: wait; animation: none; }
+    .btn-wa:disabled { opacity: .6; cursor: wait; }
     .btn-wa.block { display: flex; width: 100%; border-radius: 10px; padding: 12px 16px; font-size: 15px; }
-    @keyframes waPulse { 0% { box-shadow: 0 6px 18px #25d36659, 0 0 0 0 #25d36699; } 70% { box-shadow: 0 6px 18px #25d36659, 0 0 0 16px #25d36600; } 100% { box-shadow: 0 6px 18px #25d36659, 0 0 0 0 #25d36600; } }
-    @keyframes waWiggle { 0%, 88%, 100% { transform: rotate(0); } 90% { transform: rotate(-14deg); } 93% { transform: rotate(12deg); } 96% { transform: rotate(-8deg); } }
-    @keyframes waShine { 0% { left: -75%; } 40%, 100% { left: 130%; } }
 
     /* ===== Other buttons ===== */
-    .btn { display: inline-block; background: var(--gold); color: var(--green); padding: 13px 24px; border: 0; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 16px; cursor: pointer; text-align: center; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
-    .btn:hover { transform: translateY(-4px) scale(1.04); box-shadow: 0 12px 26px #0004; background: #fff; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; background: var(--gold); color: var(--green); padding: 12px 22px; border: 0; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 16px; cursor: pointer; text-align: center; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
     .btn:active { transform: scale(.97); }
     .btn-outline { background: transparent; border: 2px solid var(--gold); color: var(--gold); }
-    .btn-outline:hover { background: var(--gold); color: var(--green); }
-    .btn-sm { padding: 8px 14px; font-size: 13px; border-radius: 8px; border: 0; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block; transition: transform .2s, filter .2s; }
-    .btn-sm:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .btn-sm { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 8px 14px; font-size: 13px; border-radius: 8px; border: 0; cursor: pointer; font-weight: bold; text-decoration: none; transition: filter .2s; }
     .b-ok { background: #1e9e54; color: #fff; } .b-no { background: #e8a33a; color: #3b2500; } .b-del { background: var(--red); color: #fff; }
     .b-wa { background: var(--wa); color: #05361b; } .b-gray { background: #e5e9e6; color: var(--green); } .b-green { background: var(--green); color: var(--gold); }
 
+    /* hover effects sirf mouse wale device par (phone par layout hilta nahi) */
+    @media (hover: hover) {
+      .btn-wa:hover { transform: translateY(-3px); box-shadow: 0 12px 26px #25d36680; filter: brightness(1.07); }
+      .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 22px #0004; background: #fff; }
+      .btn-outline:hover { background: var(--gold); color: var(--green); }
+      .btn-sm:hover { filter: brightness(1.1); }
+      .card:hover, .area-card:hover { transform: translateY(-6px); box-shadow: 0 14px 30px #00000033; }
+      .card:hover img { transform: scale(1.06); }
+      .area-card:hover { background-position: 100% 100%; }
+      .area-card:hover::after { left: 130%; }
+      .area-card:hover .go { transform: translateX(6px); }
+      nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+    }
+
     /* ===== Header / nav ===== */
-    header { background: var(--green); color: #fff; padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
-    .brand-wrap { display: flex; align-items: center; gap: 12px; }
-    .brand-photo { width: 66px; height: 66px; object-fit: cover; object-position: center 25%; border-radius: 50%; border: 2px solid var(--gold); box-shadow: 0 3px 10px #0003; flex-shrink: 0; }
-    .logo { font-size: 27px; font-weight: bold; color: var(--gold); }
+    header { background: var(--green); color: #fff; padding: 12px 4%; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .brand-wrap { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-photo { width: 60px; height: 60px; object-fit: cover; object-position: center 25%; border-radius: 50%; border: 2px solid var(--gold); flex-shrink: 0; }
+    .logo { font-size: 26px; font-weight: bold; color: var(--gold); line-height: 1.2; }
     header p { font-size: 12px; letter-spacing: 1px; }
     nav { background: var(--green-dark); position: sticky; top: 0; z-index: 20; box-shadow: 0 2px 10px #0003; }
-    nav ul { list-style: none; display: flex; gap: 4px; padding: 0 3%; overflow-x: auto; white-space: nowrap; scrollbar-width: none; max-width: 1200px; margin: auto; }
+    nav ul { list-style: none; display: flex; gap: 2px; padding: 0 3%; overflow-x: auto; white-space: nowrap; scrollbar-width: none; max-width: 1200px; margin: auto; -webkit-overflow-scrolling: touch; }
     nav ul::-webkit-scrollbar { display: none; }
-    nav a { display: block; color: #fff; text-decoration: none; padding: 13px 14px; font-size: 14px; font-weight: bold; border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; }
-    nav a:hover, nav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+    nav a { display: block; color: #fff; text-decoration: none; padding: 13px 14px; font-size: 14px; font-weight: bold; border-bottom: 3px solid transparent; }
+    nav a.active { color: var(--gold); border-bottom-color: var(--gold); }
 
     /* ===== Hero ===== */
     .hero {
-      color: #fff; padding: 70px 7% 80px; position: relative;
+      color: #fff; padding: 70px 7% 80px;
       background:
         linear-gradient(90deg, rgba(11,33,66,.85) 0%, rgba(18,48,90,.55) 55%, rgba(18,48,90,.2) 100%),
         url("images/hero.jpg") center/cover,
         url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80") center/cover,
-        url("https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1600&q=80") center/cover,
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' preserveAspectRatio='xMidYMax slice'><rect width='1200' height='400' fill='%2312305a'/><g fill='%230b2142'><rect x='40' y='180' width='90' height='220'/><rect x='150' y='110' width='110' height='290'/><rect x='280' y='200' width='80' height='200'/><rect x='390' y='70' width='130' height='330'/><rect x='540' y='150' width='100' height='250'/><rect x='660' y='100' width='120' height='300'/><rect x='800' y='190' width='90' height='210'/><rect x='910' y='120' width='110' height='280'/><rect x='1040' y='170' width='120' height='230'/></g></svg>") center bottom/cover;
+        #12305a;
     }
     .hero-grid { max-width: 1150px; margin: 0 auto; }
     .tagline { display: inline-block; background: var(--gold); color: var(--green); font-weight: bold; padding: 6px 16px; border-radius: 20px; font-size: 14px; margin-bottom: 16px; }
-    .hero h1 { font-size: clamp(32px, 5.2vw, 54px); line-height: 1.15; margin-bottom: 14px; }
+    .hero h1 { font-size: clamp(28px, 6vw, 54px); line-height: 1.15; margin-bottom: 14px; }
     .hero p { font-size: 18px; margin-bottom: 10px; max-width: 600px; }
-    .areas { font-weight: bold; color: var(--gold); margin-bottom: 28px !important; }
+    .areas-line { font-weight: bold; color: var(--gold); margin-bottom: 26px !important; }
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 
     /* ===== Layout ===== */
-    .container { max-width: 1200px; margin: auto; padding: 50px 18px; }
-    .section-title { text-align: center; margin-bottom: 28px; }
-    .section-title h2 { font-size: 30px; color: var(--green); }
+    .container { max-width: 1200px; margin: auto; padding: 46px 16px; }
+    .section-title { text-align: center; margin-bottom: 26px; }
+    .section-title h2 { font-size: clamp(24px, 4vw, 30px); color: var(--green); }
     .section-title p { color: var(--muted); }
-    section + section { margin-top: 55px; }
+    section + section { margin-top: 50px; }
 
-    .tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
-    .tab { padding: 10px 22px; border: 2px solid var(--green); background: #fff; color: var(--green); border-radius: 30px; font-weight: bold; cursor: pointer; font-size: 15px; transition: all .2s; }
-    .tab:hover { transform: translateY(-2px); }
-    .tab.active { background: var(--green); color: var(--gold); }
-    .filters { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
+    /* ===== Kshetra (location) cards ===== */
+    .area-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 18px; }
+    .area-card { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 6px; min-height: 110px; padding: 18px 16px; border-radius: 14px; overflow: hidden; color: #fff; text-decoration: none; background: linear-gradient(135deg, var(--green), var(--green-dark), #1c4a8a); background-size: 200% 200%; background-position: 0 0; box-shadow: 0 3px 15px #0000001a; transition: transform .25s, box-shadow .25s, background-position .5s; animation: cardIn .5s ease backwards; }
+    .area-card::after { content: ""; position: absolute; top: 0; left: -80%; width: 50%; height: 100%; background: linear-gradient(120deg, transparent, #ffffff30, transparent); transform: skewX(-20deg); transition: left .6s; pointer-events: none; }
+    .area-card h3 { font-size: 20px; color: #fff; overflow-wrap: anywhere; }
+    .area-card .go { display: inline-block; font-size: 13px; color: var(--gold); font-weight: bold; transition: transform .25s; }
+    .area-card:active { transform: scale(.97); }
+    .new-tag { display: inline-block; background: #e23c3c; color: #fff; font-size: 11px; font-weight: bold; padding: 2px 10px; border-radius: 12px; animation: newPop .6s ease backwards, newPulse 1.6s .6s infinite; }
+    .area-card .new-tag { position: absolute; top: 10px; right: 10px; }
+    .card { animation: cardIn .5s ease backwards; }
+    .card.is-new { box-shadow: 0 0 0 2px #e23c3c66, 0 3px 15px #0000000f; }
+    .badge.new { animation: newPop .6s ease backwards, newPulse 1.6s .6s infinite; }
+    @keyframes cardIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @keyframes newPop { 0% { transform: scale(.4) rotate(-10deg); opacity: 0; } 60% { transform: scale(1.2) rotate(3deg); } 100% { transform: none; opacity: 1; } }
+    @keyframes newPulse { 0% { box-shadow: 0 0 0 0 #e23c3c99; } 70% { box-shadow: 0 0 0 9px #e23c3c00; } 100% { box-shadow: 0 0 0 0 #e23c3c00; } }
+
+    /* ===== Location page ===== */
+    .loc-hero { color: #fff; padding: 46px 6% 40px; background: var(--green); }
+    .loc-hero-in { max-width: 1150px; margin: 0 auto; }
+    .back-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--gold); font-weight: bold; text-decoration: none; margin-bottom: 8px; }
+    .loc-hero h1 { font-size: clamp(28px, 6vw, 44px); line-height: 1.15; margin-bottom: 8px; }
+    .loc-hero p { max-width: 600px; margin-bottom: 18px; }
+    .filters { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 26px; }
     select, input, textarea { font-family: inherit; }
-    .filters select { padding: 12px; border: 1px solid #ccc; border-radius: 8px; width: min(100%, 260px); font-size: 16px; background: #fff; }
-    .loc-box { margin-top: 34px; background: #fff; border-radius: 14px; box-shadow: 0 3px 15px #0000000f; overflow: hidden; }
+    .filters select { padding: 12px; border: 1px solid #ccc; border-radius: 8px; width: min(100%, 300px); font-size: 16px; background: #fff; }
+    .no-result { text-align: center; padding: 34px 16px; color: var(--muted); background: #fff; border-radius: 14px; box-shadow: 0 3px 15px #0000000f; }
+    .no-result .btn-wa { margin-top: 14px; }
+
+    .loc-box { margin-top: 40px; background: #fff; border-radius: 14px; box-shadow: 0 3px 15px #0000000f; overflow: hidden; }
     .loc-box .loc-info { padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
     .loc-box h3 { color: var(--green); font-size: 20px; }
     .loc-box p { color: var(--muted); font-size: 14px; }
     .loc-box iframe { display: block; width: 100%; height: 340px; border: 0; }
-    .no-result { display: none; text-align: center; padding: 30px; color: var(--muted); }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
-    .card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 3px 15px #0000000f; transition: transform .25s, box-shadow .25s; position: relative; display: flex; flex-direction: column; }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 14px 30px #00000022; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 22px; }
+    .card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 3px 15px #0000000f; transition: transform .25s, box-shadow .25s; position: relative; display: flex; flex-direction: column; min-width: 0; }
     .card .img-wrap { overflow: hidden; cursor: zoom-in; position: relative; }
     .card img { width: 100%; height: 205px; object-fit: cover; display: block; transition: transform .5s; }
-    .card:hover img { transform: scale(1.08); }
     .badge { position: absolute; top: 12px; left: 12px; background: var(--green); color: var(--gold); font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 20px; z-index: 2; }
-    .badge.rent { background: #c47b12; color: #fff; }
     .badge.new { left: auto; right: 12px; background: #e23c3c; color: #fff; }
     .photo-count { position: absolute; bottom: 10px; right: 10px; background: #000a; color: #fff; font-size: 12px; padding: 3px 9px; border-radius: 12px; }
     .card-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+    .card.noimg .card-body { padding-top: 48px; }
     .card h3 { color: var(--green); font-size: 20px; margin-bottom: 4px; }
     .location { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
-    .meta { font-size: 13px; color: var(--muted); margin-bottom: 6px; word-break: break-word; }
+    .meta { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
     .price { font-weight: bold; margin: 10px 0 14px; color: var(--green); font-size: 17px; }
     .card .btn-wa { margin-top: auto; }
 
@@ -118,12 +142,13 @@
     .sell-info ul { list-style: none; margin: 14px 0; }
     .sell-info li { padding: 6px 0; }
     .sell-info li::before { content: "✔ "; color: var(--gold); }
-    .post-box { background: #fff; border-radius: 14px; padding: 26px 22px; box-shadow: 0 3px 15px #0000000f; }
+    .post-box { background: #fff; border-radius: 14px; padding: 26px 22px; box-shadow: 0 3px 15px #0000000f; min-width: 0; }
     .post-box label, .modal label { display: block; font-weight: bold; margin: 12px 0 5px; font-size: 14px; }
     .post-box input, .post-box select, .post-box textarea, .modal input, .modal select, .modal textarea, .adm-login input, .adm-bar input, .adm-bar select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; background: #fff; transition: border-color .2s, box-shadow .2s; }
     .post-box input:focus, .post-box select:focus, .post-box textarea:focus, .modal input:focus, .modal select:focus, .modal textarea:focus, .adm-login input:focus, .adm-bar input:focus { outline: none; border-color: var(--wa-dark); box-shadow: 0 0 0 3px #25d36633; }
     .post-box textarea, .modal textarea { min-height: 80px; resize: vertical; }
     .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .row2 > div { min-width: 0; }
     .post-box .btn-wa { width: 100%; margin-top: 18px; border-radius: 10px; }
     .note { font-size: 13px; color: var(--muted); margin-top: 10px; }
     .success { display: none; background: #e6f9ee; border: 1px solid #25d366; color: #0b6b36; padding: 14px; border-radius: 8px; margin-top: 14px; font-size: 14px; }
@@ -132,12 +157,11 @@
 
     /* photo picker */
     .pp-btn { display: inline-flex; align-items: center; gap: 8px; background: #eaf0f8; border: 2px dashed var(--green); color: var(--green); padding: 10px 16px; border-radius: 10px; cursor: pointer; font-weight: bold; font-size: 14px; margin: 0 !important; }
-    .pp-btn:hover { background: #dce6f3; }
     .pp-count { font-size: 13px; color: var(--muted); margin-left: 8px; }
     .thumbs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
     .thumb { position: relative; width: 74px; height: 74px; border-radius: 8px; overflow: hidden; border: 1px solid #ccc; cursor: zoom-in; }
     .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .thumb button { position: absolute; top: 2px; right: 2px; width: 20px; height: 20px; border-radius: 50%; border: 0; background: #000b; color: #fff; cursor: pointer; font-size: 13px; line-height: 20px; }
+    .thumb button { position: absolute; top: 2px; right: 2px; width: 22px; height: 22px; border-radius: 50%; border: 0; background: #000b; color: #fff; cursor: pointer; font-size: 13px; line-height: 22px; }
 
     .contact { background: #fff; padding: 34px 22px; border-radius: 14px; text-align: center; box-shadow: 0 3px 15px #0000000f; }
     .contact h2 { color: var(--green); }
@@ -147,10 +171,8 @@
     footer a { color: var(--gold); }
 
     .float-wa { position: fixed; bottom: 20px; right: 18px; z-index: 30; padding: 14px 22px; }
-    .float-wa::before { content: ""; position: absolute; inset: 0; border-radius: 50px; border: 2px solid var(--wa); animation: ring 2s infinite; }
-    @keyframes ring { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(1.5); opacity: 0; } }
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.show { opacity: 1; transform: none; }
+    .reveal { opacity: 0; transition: opacity .6s ease; }
+    .reveal.show { opacity: 1; }
 
     /* ===== Toast + lightbox ===== */
     #toast { position: fixed; top: 16px; left: 50%; transform: translate(-50%, -150%); background: #12305a; color: #fff; border: 2px solid var(--gold); padding: 14px 22px; border-radius: 12px; z-index: 100; box-shadow: 0 10px 30px #0006; transition: transform .4s; max-width: 92vw; font-weight: bold; }
@@ -180,22 +202,23 @@
     .banner { padding: 12px 16px; border-radius: 10px; font-size: 14px; margin-bottom: 16px; }
     .banner.demo { background: #fff6e0; border: 1px solid #e8a33a; color: #7a4b00; }
     .banner.live { background: #e6f9ee; border: 1px solid #25d366; color: #0b6b36; }
-    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 18px; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 12px; margin-bottom: 18px; }
     .stat { background: #fff; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 10px #0000000d; }
     .stat b { display: block; font-size: 30px; color: var(--green); }
     .stat span { font-size: 13px; color: var(--muted); }
     .stat.hot b { color: #e23c3c; }
     .adm-bar { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-bottom: 12px; }
     .adm-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
-    .adm-tabs .tab { padding: 8px 16px; font-size: 14px; }
     .adm-tabs .sp { flex: 1; }
+    .tab { padding: 9px 18px; min-height: 44px; border: 2px solid var(--green); background: #fff; color: var(--green); border-radius: 30px; font-weight: bold; cursor: pointer; font-size: 14px; }
+    .tab.active { background: var(--green); color: var(--gold); }
     .sub { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 14px; box-shadow: 0 2px 10px #0000000d; border-left: 5px solid #e8a33a; }
     .sub.approved { border-left-color: #1e9e54; } .sub.rejected { border-left-color: #999; opacity: .85; }
     .sub-top { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 6px; font-size: 13px; color: var(--muted); }
     .st { font-weight: bold; padding: 2px 10px; border-radius: 12px; font-size: 12px; }
     .st-pending { background: #ffe9c2; color: #7a4b00; } .st-approved { background: #dff5e6; color: #0b6b36; } .st-rejected { background: #e5e5e5; color: #555; }
-    .sub h3 { color: var(--green); font-size: 18px; margin-bottom: 4px; }
-    .sub .who { font-weight: bold; margin-bottom: 4px; }
+    .sub h3 { color: var(--green); font-size: 18px; margin-bottom: 4px; overflow-wrap: anywhere; }
+    .sub .who { font-weight: bold; margin-bottom: 4px; overflow-wrap: anywhere; }
     .acts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
     .empty { text-align: center; padding: 40px; color: var(--muted); background: #fff; border-radius: 12px; }
 
@@ -204,31 +227,31 @@
     .modal h2 { color: var(--green); margin-bottom: 6px; }
     .modal .acts { margin-top: 18px; }
 
-    @media (max-width: 820px) { .sell-wrap { grid-template-columns: 1fr; } .adm-bar { grid-template-columns: 1fr; } }
-    @media (max-width: 700px) { .hero { padding: 50px 18px 60px; text-align: center; } .hero p { margin-left: auto; margin-right: auto; } .hero-btns { justify-content: center; } .brand-photo { width: 48px; height: 48px; } .logo { font-size: 23px; } }
-    @media (max-width: 480px) { header { justify-content: center; text-align: center; } .hero p { font-size: 16px; } .row2 { grid-template-columns: 1fr; } .float-wa span.txt { display: none; } .float-wa { padding: 15px; } }
-    /* ===== Auto-fit: mobile / tablet / desktop ===== */
-    html, body { max-width: 100%; overflow-x: hidden; }
-    img, iframe, video { max-width: 100%; }
-    .grid { grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); }
-    .stats { grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); }
-    .btn-wa, .btn, .tab, .btn-sm { min-height: 44px; }
-    .btn-sm { display: inline-flex; align-items: center; justify-content: center; }
-    .sub h3, .card h3, .meta, .who { overflow-wrap: anywhere; }
+    .meta, .card h3, .location { overflow-wrap: anywhere; }
+
+    /* ===== Phone / tablet ===== */
     @media (max-width: 900px) {
-      .container { padding: 36px 14px; }
-      .section-title h2 { font-size: 26px; }
+      .container { padding: 34px 14px; }
+      .sell-wrap { grid-template-columns: 1fr; }
+      .adm-bar { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      header { flex-direction: column; text-align: center; gap: 10px; padding: 12px 4%; }
+      header { flex-direction: column; text-align: center; gap: 10px; }
       .brand-wrap { flex-direction: column; gap: 6px; }
+      .logo { font-size: 23px; }
+      .brand-photo { width: 52px; height: 52px; }
       header .btn-wa { width: 100%; max-width: 320px; }
-      nav a { padding: 12px 12px; font-size: 13px; }
-      .hero { padding: 44px 16px 52px; }
-      .hero h1 { font-size: clamp(28px, 8vw, 38px); }
+      nav a { padding: 12px; font-size: 13px; }
+      .hero { padding: 44px 16px 52px; text-align: center; }
+      .hero p { font-size: 16px; margin-left: auto; margin-right: auto; }
+      .hero-btns { justify-content: center; }
       .hero-btns .btn-wa, .hero-btns .btn { width: 100%; }
-      .tab { padding: 9px 16px; font-size: 14px; }
+      .area-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .area-card h3 { font-size: 17px; }
+      .area-card .go { font-size: 12px; }
+      .loc-hero { padding: 30px 16px 28px; }
       .filters select { width: 100%; }
+      .row2 { grid-template-columns: 1fr; }
       .sell-info, .post-box, .contact { padding: 22px 16px; }
       .loc-box .loc-info { flex-direction: column; text-align: center; }
       .loc-box iframe { height: 220px; }
@@ -241,14 +264,16 @@
       .modal { padding: 16px; }
       .modal-bg { padding: 10px 8px; }
       .thumb { width: 64px; height: 64px; }
-      .float-wa { right: 12px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
+      .float-wa { right: 12px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); padding: 15px; }
+      .float-wa span.txt { display: none; }
       footer { padding: 26px 14px calc(80px + env(safe-area-inset-bottom, 0px)); }
       #toast { width: 92vw; text-align: center; }
       #lbPrev { left: 6px; } #lbNext { right: 6px; }
     }
+    @media (max-width: 340px) { .area-grid { grid-template-columns: 1fr; } }
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-      .reveal { opacity: 1; transform: none; }
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; }
     }
   </style>
 </head>
@@ -268,7 +293,8 @@
 
 <header id="home">
   <div class="brand-wrap">
-    <img class="brand-photo" src="data:image/jpeg;base64,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" alt="NK Properties">
+    <!-- Apna logo "images/logo.jpg" naam se images folder mein rakhein -->
+    <img class="brand-photo" src="images/logo.jpg" alt="NK Properties" onerror="this.style.display='none'">
     <div>
       <div class="logo">NK PROPERTIES</div>
       <p>YOUR TRUSTED PROPERTY PARTNER</p>
@@ -279,119 +305,127 @@
 
 <nav aria-label="Main menu">
   <ul>
-    <li><a href="#home" class="active">Home</a></li>
-    <li><a href="#properties" data-go="buy">Buy Property</a></li>
-    <li><a href="#properties" data-go="rent">Rent</a></li>
-    <li><a href="#properties" data-type="agriculture">Agriculture Land</a></li>
-    <li><a href="#properties" data-type="commercial">Commercial</a></li>
+    <li><a href="#home" id="navHome" class="active">Home</a></li>
+    <li><a href="#areas">Locations</a></li>
     <li><a href="#sell">Seller Panel (Property Dalein)</a></li>
     <li><a href="#admin">Admin Panel</a></li>
   </ul>
 </nav>
 
-<section class="hero">
-  <div class="hero-grid">
-    <div class="hero-copy">
-      <span class="tagline">Buy • Sell • Rent • Invest</span>
+<!-- ---------- HOME PAGE ---------- -->
+<div id="homePage">
+  <section class="hero">
+    <div class="hero-grid">
+      <span class="tagline">Buy • Sell</span>
       <h1>Apni Zameen, Apna Makaan, Apna Plot</h1>
       <p>Plot, makaan, dukaan aur krishi bhoomi - kharidein ya apni property bechein, sab ek hi jagah.</p>
-      <p class="areas">मुख्य क्षेत्र: टोंक | उनियारा | अलीगढ़</p>
+      <p class="areas-line">मुख्य क्षेत्र: टोंक | उनियारा | अलीगढ़</p>
       <div class="hero-btns">
         <a class="btn-wa wa-general" href="#" target="_blank" rel="noopener"><svg><use href="#wa-icon"/></svg>Plot Kharidne ke liye WhatsApp</a>
         <a class="btn btn-outline" href="#sell">Apni Property Bechein →</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<main class="container">
+  <main class="container">
 
-  <section id="properties" class="reveal">
-    <div class="section-title">
-      <h2>Hamari Properties</h2>
-      <p>Location aur type chunein, phir WhatsApp par jaankari lein.</p>
+    <section id="areas" class="reveal">
+      <div class="section-title">
+        <h2>Hamare Kshetra</h2>
+        <p>Apna kshetra chunein, phir wahan ki properties dekhein.</p>
+      </div>
+      <div class="area-grid" id="areaGrid"></div>
+
+      <div class="loc-box">
+        <div class="loc-info">
+          <div><h3>📍 Hamari Location</h3><p>Tonk | Uniara | Aligarh, Rajasthan</p></div>
+          <a class="btn-sm b-green" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=NK+Properties+Tonk+Rajasthan">🗺️ Google Maps kholein</a>
+        </div>
+        <iframe title="NK Properties Location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Tonk+Rajasthan+India&z=5&output=embed"></iframe>
+      </div>
+    </section>
+
+    <section id="sell" class="reveal">
+      <div class="sell-wrap">
+        <div class="sell-info">
+          <h2>Seller Panel: Apni Zameen / Makaan Dalein</h2>
+          <p>Form bharein aur photo jodein - aapki property ki jaankari seedhe hamare Admin Panel mein pahunch jaati hai.</p>
+          <ul>
+            <li>Bilkul free listing</li>
+            <li>Plot, makaan, dukaan, krishi bhoomi sab</li>
+            <li>Photo ke saath (max 3)</li>
+            <li>Hum khud aapko call / WhatsApp karenge</li>
+          </ul>
+          <p>Hamari check ke baad aapki property website par dikhne lagegi.</p>
+        </div>
+
+        <div class="post-box">
+          <form id="postForm">
+            <div class="row2">
+              <div><label for="pName">Aapka Naam</label><input id="pName" type="text" required placeholder="Naam likhein" maxlength="60"></div>
+              <div><label for="pMobile">Mobile Number</label><input id="pMobile" type="tel" required pattern="[0-9]{10}" maxlength="10" inputmode="numeric" placeholder="10 digit number"></div>
+            </div>
+            <div class="row2">
+              <div><label for="pType">Property Type</label><select id="pType"></select></div>
+              <div><label for="pLocation">Kshetra</label><select id="pLocation"></select></div>
+            </div>
+            <div class="row2">
+              <div><label for="pArea">Gaon / Mohalla</label><input id="pArea" type="text" placeholder="Jaise: Station Road" maxlength="60"></div>
+              <div><label for="pSize">Size / Area</label><input id="pSize" type="text" placeholder="1000 sq ft / 2 bigha" maxlength="40"></div>
+            </div>
+            <label for="pPrice">Aapki Expected Price</label>
+            <input id="pPrice" type="text" placeholder="Jaise: 8 lakh" maxlength="40">
+            <label for="pDetails">Anya Details</label>
+            <textarea id="pDetails" placeholder="Road facing, registry, paas mein kya hai..." maxlength="500"></textarea>
+
+            <label>Property ki Photo</label>
+            <div class="pp" id="sellPP">
+              <label class="pp-btn">📷 Photo jodein (max 3)<input class="vh" type="file" accept="image/*" multiple></label>
+              <span class="pp-count">0/3</span>
+              <div class="thumbs"></div>
+            </div>
+
+            <button class="btn-wa" type="submit" id="sellBtn"><svg><use href="#wa-icon"/></svg>Property Bhejein</button>
+            <div class="success" id="successMsg"></div>
+            <p class="note">Aapka mobile number sirf NK Properties ko dikhta hai, website par nahi.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact reveal">
+      <h2>Plot ya Makaan Chahiye?</h2>
+      <p>Price, size aur location ki details ke liye abhi WhatsApp par message karein.</p>
+      <a class="btn-wa wa-general" href="#" target="_blank" rel="noopener"><svg><use href="#wa-icon"/></svg>Chat on WhatsApp</a>
+    </section>
+  </main>
+</div>
+
+<!-- ---------- LOCATION PAGE (Tonk / Uniara ...) ---------- -->
+<div id="locPage" hidden>
+  <section class="loc-hero" id="locHero">
+    <div class="loc-hero-in">
+      <a class="back-link" href="#areas">← All Locations</a>
+      <h1 id="locTitle"></h1>
+      <p id="locSub"></p>
+      <a class="btn-wa" id="locWA" target="_blank" rel="noopener" href="#"><svg><use href="#wa-icon"/></svg>WhatsApp par poochhein</a>
     </div>
-    <div class="tabs">
-      <button class="tab active" data-purpose="all">Sabhi</button>
-      <button class="tab" data-purpose="buy">Buy (Kharidein)</button>
-      <button class="tab" data-purpose="rent">Rent (Kiraye par)</button>
-    </div>
+  </section>
+  <main class="container">
     <div class="filters">
-      <select id="locationFilter" aria-label="Location chunein"></select>
       <select id="typeFilter" aria-label="Property type chunein"></select>
     </div>
     <div class="grid" id="propertyGrid"></div>
-    <p class="no-result" id="noResult">Is selection mein abhi koi property nahi hai. Kripya WhatsApp par poochhein.</p>
-    <div class="loc-box">
-      <div class="loc-info">
-        <div><h3>📍 Hamari Location</h3><p>Tonk | Uniara | Aligarh, Rajasthan</p></div>
-        <a class="btn-sm b-green" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=NK+Properties+Tonk+Rajasthan">🗺️ Google Maps kholein</a>
-      </div>
-      <iframe title="NK Properties Location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Tonk+Rajasthan+India&z=5&output=embed"></iframe>
+    <div class="no-result" id="noResult" hidden>
+      <p>Is kshetra mein abhi koi property listed nahi hai.<br>Property ki jaankari ke liye seedhe WhatsApp par poochhein.</p>
+      <a class="btn-wa" id="noResultWA" target="_blank" rel="noopener" href="#"><svg><use href="#wa-icon"/></svg>WhatsApp Karein</a>
     </div>
-  </section>
-
-  <section id="sell" class="reveal">
-    <div class="sell-wrap">
-      <div class="sell-info">
-        <h2>Seller Panel: Apni Zameen / Makaan Dalein</h2>
-        <p>Form bharein aur photo jodein - aapki property ki jaankari seedhe hamare Admin Panel mein pahunch jaati hai.</p>
-        <ul>
-          <li>Bilkul free listing</li>
-          <li>Plot, makaan, dukaan, krishi bhoomi sab</li>
-          <li>Photo ke saath (max 3)</li>
-          <li>Hum khud aapko call / WhatsApp karenge</li>
-        </ul>
-        <p>Hamari check ke baad aapki property website par dikhne lagegi.</p>
-      </div>
-
-      <div class="post-box">
-        <form id="postForm">
-          <div class="row2">
-            <div><label for="pName">Aapka Naam</label><input id="pName" type="text" required placeholder="Naam likhein" maxlength="60"></div>
-            <div><label for="pMobile">Mobile Number</label><input id="pMobile" type="tel" required pattern="[0-9]{10}" maxlength="10" inputmode="numeric" placeholder="10 digit number"></div>
-          </div>
-          <div class="row2">
-            <div><label for="pPurpose">Kya karna hai?</label>
-              <select id="pPurpose"><option value="buy">Bechna hai (Sell)</option><option value="rent">Kiraye par dena hai (Rent)</option></select></div>
-            <div><label for="pType">Property Type</label><select id="pType"></select></div>
-          </div>
-          <div class="row2">
-            <div><label for="pLocation">Kshetra</label><select id="pLocation"></select></div>
-            <div><label for="pArea">Gaon / Mohalla</label><input id="pArea" type="text" placeholder="Jaise: Station Road" maxlength="60"></div>
-          </div>
-          <div class="row2">
-            <div><label for="pSize">Size / Area</label><input id="pSize" type="text" placeholder="1000 sq ft / 2 bigha" maxlength="40"></div>
-            <div><label for="pPrice">Aapki Expected Price</label><input id="pPrice" type="text" placeholder="Jaise: 8 lakh" maxlength="40"></div>
-          </div>
-          <label for="pDetails">Anya Details</label>
-          <textarea id="pDetails" placeholder="Road facing, registry, paas mein kya hai..." maxlength="500"></textarea>
-
-          <label>Property ki Photo</label>
-          <div class="pp" id="sellPP">
-            <label class="pp-btn">📷 Photo jodein (max 3)<input class="vh" type="file" accept="image/*" multiple></label>
-            <span class="pp-count">0/3</span>
-            <div class="thumbs"></div>
-          </div>
-
-          <button class="btn-wa" type="submit" id="sellBtn"><svg><use href="#wa-icon"/></svg>Property Bhejein</button>
-          <div class="success" id="successMsg"></div>
-          <p class="note">Aapka mobile number sirf NK Properties ko dikhta hai, website par nahi.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact reveal">
-    <h2>Plot ya Makaan Chahiye?</h2>
-    <p>Price, size aur location ki details ke liye abhi WhatsApp par message karein.</p>
-    <a class="btn-wa wa-general" href="#" target="_blank" rel="noopener"><svg><use href="#wa-icon"/></svg>Chat on WhatsApp</a>
-  </section>
-</main>
+  </main>
+</div>
 
 <footer>
   <h2>NK PROPERTIES</h2>
-  <p>Buy • Sell • Rent • Invest</p>
+  <p>Buy • Sell</p>
   <p>📍 Tonk | Uniara | Aligarh, Rajasthan</p>
   <p><a href="https://www.google.com/maps/search/?api=1&query=NK+Properties+Tonk+Rajasthan" target="_blank" rel="noopener">🗺️ Google Maps par Location dekhein</a></p>
   <p>WhatsApp: +91 97854 80342</p>
@@ -405,7 +439,7 @@
 <!-- ======================= ADMIN PANEL ======================= -->
 <div id="adminView" hidden>
   <div class="adm-top">
-    <div class="brand-wrap"><img class="brand-photo" style="width:40px;height:40px" src="data:image/jpeg;base64,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" alt=""><div class="logo">NK Admin Panel</div></div>
+    <div class="brand-wrap"><img class="brand-photo" style="width:40px;height:40px" src="images/logo.jpg" alt="" onerror="this.style.display='none'"><div class="logo">NK Admin Panel</div></div>
     <div class="right">
       <span class="mode" id="modeBadge"></span>
       <div class="bell" id="bell" title="Nayi properties" hidden>🔔<b id="bellCount">0</b></div>
@@ -433,7 +467,7 @@
       <button class="tab active" data-st="pending">Naye</button>
       <button class="tab" data-st="approved">Website par</button>
       <button class="tab" data-st="rejected">Rejected</button>
-      <button class="tab" data-st="all">Sabhi</button>
+      <button class="tab" data-st="all">All</button>
       <span class="sp"></span>
       <button class="btn-sm b-gray" id="notifBtn">🔔 Desktop alert chalu karein</button>
       <button class="btn-sm b-green" id="addBtn">➕ Nayi Property Jodein</button>
@@ -456,16 +490,13 @@
       <label for="eTitle">Website par Title</label><input id="eTitle" type="text" required maxlength="90">
       <div class="row2">
         <div><label for="eType">Type</label><select id="eType"></select></div>
-        <div><label for="ePurpose">Buy / Rent</label><select id="ePurpose"><option value="buy">For Sale</option><option value="rent">For Rent</option></select></div>
-      </div>
-      <div class="row2">
         <div><label for="eLocation">Kshetra</label><select id="eLocation"></select></div>
-        <div><label for="eArea">Gaon / Mohalla</label><input id="eArea" type="text" maxlength="60"></div>
       </div>
       <div class="row2">
+        <div><label for="eArea">Gaon / Mohalla</label><input id="eArea" type="text" maxlength="60"></div>
         <div><label for="eSize">Size</label><input id="eSize" type="text" maxlength="40"></div>
-        <div><label for="ePrice">Price (website par jaisa dikhana hai)</label><input id="ePrice" type="text" maxlength="60"></div>
       </div>
+      <label for="ePrice">Price (website par jaisa dikhana hai)</label><input id="ePrice" type="text" maxlength="60">
       <label for="eDesc">Description</label><textarea id="eDesc" maxlength="500"></textarea>
       <label>Photos</label>
       <div class="pp" id="editPP"><label class="pp-btn">📷 Photo jodein<input class="vh" type="file" accept="image/*" multiple></label><span class="pp-count">0/3</span><div class="thumbs"></div></div>
@@ -483,39 +514,24 @@
    SETTINGS (yahan sirf ye cheezein badalni hain)
    ===================================================================== */
 var WA = "919785480342";            // aapka WhatsApp number (country code ke saath)
-var SHOW_SAMPLE_LISTINGS = true;    // false karne par sirf asli (approved) properties dikhengi
 var ALSO_WHATSAPP = true;           // seller ke form bhejne par WhatsApp bhi khule
 
 /* LIVE MODE (sabhi devices se data aaye):
-   Firebase mein free project banakar uska config yahan paste karein. SETUP.md dekhein.
+   Firebase mein free project banakar uska config yahan paste karein.
    Jab tak null hai, site DEMO mode mein chalti hai (data sirf isi browser mein).
    Example:
    var FIREBASE_CONFIG = { apiKey:"...", authDomain:"...", projectId:"...", appId:"..." };            */
 var FIREBASE_CONFIG = null;
 var LOCAL_ADMIN_PASSWORD = "nk@1234"; // sirf DEMO mode ka password. Live mode mein Firebase login chalta hai.
 
-var FALLBACK_IMG = "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80";
-
-/* Sample properties (jab tak asli listings na ho). Hataane ke liye SHOW_SAMPLE_LISTINGS = false */
-var LISTINGS = [
-  { id: "NK-001", title: "Residential Plot in Tonk", place: "Tonk", location: "tonk", type: "residential", purpose: "buy", size: "", price: "Price: WhatsApp par poochhein", desc: "Aavasiya plot ki availability, size aur location ki jaankari.", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" },
-  { id: "NK-002", title: "Plot in Uniara", place: "Uniara, Tonk", location: "uniara", type: "residential", purpose: "buy", size: "", price: "Price: WhatsApp par poochhein", desc: "Plot ki availability, size aur price ki jaankari lein.", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" },
-  { id: "NK-003", title: "Plot in Aligarh", place: "Aligarh, Tonk", location: "aligarh", type: "residential", purpose: "buy", size: "", price: "Price: WhatsApp par poochhein", desc: "Residential land ki details ke liye message karein.", img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" },
-  { id: "NK-004", title: "Commercial Plot in Tonk", place: "Tonk", location: "tonk", type: "commercial", purpose: "buy", size: "", price: "Price: WhatsApp par poochhein", desc: "Dukaan aur business ke liye commercial jameen.", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" },
-  { id: "NK-005", title: "Krishi Bhoomi - Uniara", place: "Uniara, Tonk", location: "uniara", type: "agriculture", purpose: "buy", size: "", price: "Price: WhatsApp par poochhein", desc: "Kheti ke liye agricultural land ki jaankari.", img: "https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=800&q=80" },
-  { id: "NK-006", title: "Land in Indragarh", place: "Indragarh", location: "indragarh", type: "agriculture", purpose: "buy", size: "", price: "Price: WhatsApp par poochhein", desc: "Land aur plot ki jaankari ke liye sampark karein.", img: "https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=800&q=80" },
-  { id: "NK-007", title: "Plot in Karwar", place: "Karwar", location: "karwar", type: "residential", purpose: "buy", size: "", price: "Price: WhatsApp par poochhein", desc: "Residential plot ki details aur location ki jaankari.", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" },
-  { id: "NK-008", title: "Plot in Dhikoliya", place: "Dhikoliya", location: "dhikoliya", type: "residential", purpose: "buy", size: "", price: "Price: WhatsApp par poochhein", desc: "Residential land ke baare mein aur details paayein.", img: "https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=800&q=80" }
-];
-
 /* =====================================================================
    COMMON HELPERS
    ===================================================================== */
 var TYPE_LABEL = { residential: "Residential Plot", commercial: "Commercial Plot", house: "Makaan", shop: "Dukaan", agriculture: "Krishi Bhoomi" };
-/* Har jagah ki photo: apni photo "images" folder mein in naamon se rakhein (index.html ke saath).
-   Photo na mile to neeche wali default photo dikhegi. */
-var LOC_IMG = { tonk: "images/tonk.jpg", uniara: "images/uniara.jpg", aligarh: "images/aligarh.jpg", karwar: "images/karwar.jpg", indragarh: "images/indragarh.jpg", dhikoliya: "images/dhikoliya.jpg", sawaimadhopur: "images/sawaimadhopur.jpg", other: "images/rajasthan.jpg" };
-var LOC_LABEL = { tonk: "Tonk", uniara: "Uniara", aligarh: "Aligarh", karwar: "Karwar", indragarh: "Indragarh", dhikoliya: "Dhikoliya", sawaimadhopur: "Sawai Madhopur", other: "Anya" };
+var LOC_LABEL = { tonk: "Tonk", uniara: "Uniara", aligarh: "Aligarh", karwar: "Karwar", indragarh: "Indragarh", dhikoliya: "Dhikoliya", sawaimadhopur: "Sawai Madhopur" };
+/* Har kshetra ki photo: apni photo "images" folder mein in naamon se rakhein (index.html ke saath).
+   Jaise Tonk ke liye images/tonk.jpg. Photo na mile to blue background dikhega. */
+var LOC_IMG = { tonk: "images/tonk.jpg", uniara: "images/uniara.jpg", aligarh: "images/aligarh.jpg", karwar: "images/karwar.jpg", indragarh: "images/indragarh.jpg", dhikoliya: "images/dhikoliya.jpg", sawaimadhopur: "images/sawaimadhopur.jpg" };
 
 function $(id) { return document.getElementById(id); }
 function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
@@ -653,8 +669,7 @@ var DBready = (async function () {
 /* =====================================================================
    PUBLIC SITE
    ===================================================================== */
-fillSelect($("locationFilter"), LOC_LABEL, true, "Sabhi Locations");
-fillSelect($("typeFilter"), TYPE_LABEL, true, "Sabhi Property Types");
+fillSelect($("typeFilter"), TYPE_LABEL, true, "All Types");
 fillSelect($("pType"), TYPE_LABEL);
 fillSelect($("pLocation"), LOC_LABEL);
 fillSelect($("eType"), TYPE_LABEL);
@@ -662,58 +677,64 @@ fillSelect($("eLocation"), LOC_LABEL);
 
 document.querySelectorAll(".wa-general").forEach(function (a) { a.href = waLink("Namaste NK Properties, mujhe property ki details chahiye."); });
 
-var dynamicListings = [], shown = [], purpose = "all";
-var grid = $("propertyGrid"), locationFilter = $("locationFilter"), typeFilter = $("typeFilter"), tabs = document.querySelectorAll("#publicView .tab"), noResult = $("noResult");
+var dynamicListings = [], shown = [], curLoc = null;
+var grid = $("propertyGrid"), typeFilter = $("typeFilter"), noResult = $("noResult");
 
-function render() {
-  var all = dynamicListings.concat(SHOW_SAMPLE_LISTINGS ? LISTINGS.map(function (l) { l.img = LOC_IMG[l.location] || FALLBACK_IMG; l.photos = [l.img]; return l; }) : []);
-  shown = all.filter(function (l) {
-    return (locationFilter.value === "all" || l.location === locationFilter.value) &&
-           (typeFilter.value === "all" || l.type === typeFilter.value) &&
-           (purpose === "all" || l.purpose === purpose);
+/* ---------- Home: kshetra cards ---------- */
+function renderAreas() {
+  $("areaGrid").innerHTML = Object.keys(LOC_LABEL).map(function (k, i) {
+    var all = dynamicListings.filter(function (l) { return l.location === k; });
+    var nw = all.filter(function (l) { return l.isNew; }).length;
+    return '<a class="area-card" style="animation-delay:' + (i * 60) + 'ms" href="#loc-' + k + '">' +
+      (nw ? '<span class="new-tag">NEW</span>' : '') +
+      '<h3>' + esc(LOC_LABEL[k]) + '</h3>' +
+      '<span class="go">' + (all.length ? all.length + ' property • ' : '') + 'Dekhein →</span></a>';
+  }).join("");
+}
+
+/* ---------- Location page ---------- */
+function renderLoc() {
+  if (!curLoc) return;
+  var name = LOC_LABEL[curLoc];
+  $("locTitle").textContent = name + " ki Properties";
+  $("locSub").textContent = name + " kshetra mein plot, makaan, dukaan aur krishi bhoomi ki jaankari.";
+  $("locHero").style.background = "linear-gradient(90deg, rgba(11,33,66,.88) 0%, rgba(18,48,90,.55) 100%), url('" + LOC_IMG[curLoc] + "') center/cover, #12305a";
+  var msg = "Namaste NK Properties, mujhe " + name + " ki properties ki details chahiye.";
+  $("locWA").href = waLink(msg); $("noResultWA").href = waLink(msg);
+
+  shown = dynamicListings.filter(function (l) {
+    return l.location === curLoc && (typeFilter.value === "all" || l.type === typeFilter.value);
   });
   grid.innerHTML = shown.map(function (l, idx) {
-    var msg = "Namaste NK Properties, mujhe is property ki details chahiye:\n" + l.title + " (ID: " + l.id + ")\nJagah: " + l.place + "\nPrice aur location bataiye.";
-    var n = (l.photos || []).length;
-    return '<article class="card">' +
-      '<span class="badge ' + (l.purpose === "rent" ? "rent" : "") + '">' + (l.purpose === "rent" ? "For Rent" : "For Sale") + '</span>' +
+    var m = "Namaste NK Properties, mujhe is property ki details chahiye:\n" + l.title + " (ID: " + l.id + ")\nJagah: " + l.place + "\nPrice aur location bataiye.";
+    var n = l.photos.length;
+    return '<article class="card' + (n ? "" : " noimg") + (l.isNew ? " is-new" : "") + '" style="animation-delay:' + (idx * 70) + 'ms">' +
+      '<span class="badge">For Sale</span>' +
       (l.isNew ? '<span class="badge new">NEW</span>' : '') +
-      '<div class="img-wrap" data-idx="' + idx + '"><img src="' + esc(l.img) + '" alt="' + esc(l.title) + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + FALLBACK_IMG + '\'">' + (n > 1 ? '<span class="photo-count">📷 ' + n + '</span>' : '') + '</div>' +
+      (n ? '<div class="img-wrap" data-idx="' + idx + '"><img src="' + l.photos[0] + '" alt="' + esc(l.title) + '" loading="lazy">' + (n > 1 ? '<span class="photo-count">📷 ' + n + '</span>' : '') + '</div>' : '') +
       '<div class="card-body">' +
         '<h3>' + esc(l.title) + '</h3>' +
         '<p class="location">📍 ' + esc(l.place) + ', Rajasthan</p>' +
         (l.size ? '<p class="meta">📐 ' + esc(l.size) + '</p>' : '') +
-        '<p class="meta">' + esc(l.desc) + '</p>' +
+        (l.desc ? '<p class="meta">' + esc(l.desc) + '</p>' : '') +
         '<p class="price">' + esc(l.price) + '</p>' +
-        '<a class="btn-wa block" target="_blank" rel="noopener" href="' + waLink(msg) + '"><svg><use href="#wa-icon"/></svg>WhatsApp Enquiry</a>' +
+        '<a class="btn-wa block" target="_blank" rel="noopener" href="' + waLink(m) + '"><svg><use href="#wa-icon"/></svg>WhatsApp Enquiry</a>' +
       '</div></article>';
   }).join("");
-  noResult.style.display = shown.length ? "none" : "block";
+  noResult.hidden = shown.length > 0;
 }
 grid.addEventListener("click", function (e) {
   var w = e.target.closest(".img-wrap"); if (!w) return;
-  var l = shown[+w.dataset.idx]; if (l && l.photos && l.photos.length) openLB(l.photos, 0);
+  var l = shown[+w.dataset.idx]; if (l && l.photos.length) openLB(l.photos, 0);
 });
-function setPurpose(p) { purpose = p; tabs.forEach(function (t) { t.classList.toggle("active", t.dataset.purpose === p); }); render(); }
-locationFilter.addEventListener("change", render);
-typeFilter.addEventListener("change", render);
-tabs.forEach(function (t) { t.addEventListener("click", function () { setPurpose(t.dataset.purpose); }); });
-document.querySelectorAll("#publicView nav a").forEach(function (a) {
-  a.addEventListener("click", function () {
-    document.querySelectorAll("#publicView nav a").forEach(function (x) { x.classList.remove("active"); });
-    a.classList.add("active");
-    if (a.dataset.go) { typeFilter.value = "all"; setPurpose(a.dataset.go); }
-    if (a.dataset.type) { typeFilter.value = a.dataset.type; setPurpose("all"); }
-  });
-});
-render();
+typeFilter.addEventListener("change", renderLoc);
+function render() { renderAreas(); renderLoc(); }
 
 DBready.then(function (db) {
   db.listenApproved(function (docs) {
     var week = Date.now() - 7 * 86400000;
-    dynamicListings = docs.map(function (d) {
-      var ph = (d.photos || []).filter(okImg);
-      return { id: d.code || d.id, title: d.title || "Property", place: d.place || "", location: d.location || "other", type: d.type || "residential", purpose: d.purpose === "rent" ? "rent" : "buy", size: d.size || "", price: d.price || "Price: WhatsApp par poochhein", desc: d.desc || "", img: ph[0] || LOC_IMG[d.location] || FALLBACK_IMG, photos: ph, isNew: (d.ts || 0) > week };
+    dynamicListings = docs.filter(function (d) { return LOC_LABEL[d.location]; }).map(function (d) {
+      return { id: d.code || d.id, title: d.title || "Property", place: d.place || "", location: d.location, type: d.type || "residential", size: d.size || "", price: d.price || "Price: WhatsApp par poochhein", desc: d.desc || "", photos: (d.photos || []).filter(okImg), isNew: (d.ts || 0) > week };
     });
     render();
   });
@@ -727,11 +748,11 @@ $("postForm").addEventListener("submit", async function (e) {
   var v = function (id) { return $(id).value.trim(); };
   var d = {
     code: genCode(), status: "pending", source: "website", ts: Date.now(),
-    name: v("pName"), mobile: digits(v("pMobile")), purpose: $("pPurpose").value, type: $("pType").value,
+    name: v("pName"), mobile: digits(v("pMobile")), purpose: "buy", type: $("pType").value,
     location: $("pLocation").value, area: v("pArea"), size: v("pSize"), price: v("pPrice"), details: v("pDetails"), photos: sellPP.get()
   };
   var msg = "*Nayi Property (Website Seller Panel se)*\nCode: " + d.code + "\nNaam: " + d.name + "\nMobile: " + d.mobile +
-    "\nKya karna hai: " + (d.purpose === "rent" ? "Kiraye par dena hai" : "Bechna hai") + "\nType: " + TYPE_LABEL[d.type] +
+    "\nType: " + TYPE_LABEL[d.type] +
     "\nKshetra: " + LOC_LABEL[d.location] + (d.area ? ", " + d.area : "") + "\nSize: " + (d.size || "-") + "\nPrice: " + (d.price || "-") +
     "\nDetails: " + (d.details || "-") + "\nPhotos: " + d.photos.length;
   var wa = waLink(msg);
@@ -758,7 +779,7 @@ $("postForm").addEventListener("submit", async function (e) {
 /* ---------- Scroll reveal ---------- */
 var reveals = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window) {
-  var io = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("show"); io.unobserve(en.target); } }); }, { threshold: 0.08 });
+  var io = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("show"); io.unobserve(en.target); } }); }, { threshold: 0.05 });
   reveals.forEach(function (r) { io.observe(r); });
 } else { reveals.forEach(function (r) { r.classList.add("show"); }); }
 $("year").textContent = new Date().getFullYear();
@@ -770,10 +791,27 @@ var BASE_TITLE = document.title;
 var adm = { started: false, subs: [], status: "pending", seen: null, unsub: null, editing: null, mode: "approve" };
 var editPP = PhotoPicker($("editPP"), 3);
 
+/* ---------- Page routing: #home / #areas / #sell / #loc-tonk / #admin ---------- */
+function setNavActive(h) {
+  document.querySelectorAll("#publicView nav a").forEach(function (a) { a.classList.toggle("active", a.getAttribute("href") === (h === "" || h.indexOf("#loc-") === 0 ? "#areas" : h)); });
+  if (!h || h === "#home") { document.querySelectorAll("#publicView nav a").forEach(function (a) { a.classList.toggle("active", a.id === "navHome"); }); }
+}
 function route() {
-  var isAdmin = location.hash === "#admin";
+  var h = location.hash, isAdmin = h === "#admin";
   $("publicView").hidden = isAdmin; $("adminView").hidden = !isAdmin;
-  if (isAdmin) { window.scrollTo(0, 0); startAdmin(); } else { document.title = BASE_TITLE; }
+  if (isAdmin) { window.scrollTo(0, 0); startAdmin(); return; }
+  document.title = BASE_TITLE;
+  var m = h.match(/^#loc-(.+)$/), loc = m && LOC_LABEL[m[1]] ? m[1] : null;
+  $("homePage").hidden = !!loc; $("locPage").hidden = !loc;
+  setNavActive(h);
+  if (loc) {
+    if (curLoc !== loc) typeFilter.value = "all";
+    curLoc = loc; renderLoc(); window.scrollTo(0, 0);
+  } else {
+    curLoc = null;
+    var el = h.length > 1 ? document.getElementById(h.slice(1)) : null;
+    if (el) el.scrollIntoView(); else window.scrollTo(0, 0);
+  }
 }
 window.addEventListener("hashchange", route);
 
@@ -786,7 +824,7 @@ async function startAdmin() {
   var b = $("modeBanner");
   b.className = "banner " + (live ? "live" : "demo");
   b.innerHTML = live ? "🟢 Live mode: sabhi sellers ki properties yahan turant aati hain, kisi bhi device se."
-                     : "🟡 <b>Demo mode:</b> abhi data sirf isi browser mein save hota hai, isliye dusre logon ki properties yahan nahi aayengi. Sabhi devices se aane ke liye <b>SETUP.md</b> ke hisaab se Firebase jodein. Tab tak seller ke WhatsApp message se pata chalta rahega.";
+                     : "🟡 <b>Demo mode:</b> abhi data sirf isi browser mein save hota hai, isliye dusre logon ki properties yahan nahi aayengi. Sabhi devices se aane ke liye Firebase jodein. Tab tak seller ke WhatsApp message se pata chalta rahega.";
   if (adm.started) return;
   adm.started = true;
   db.onAuth(function (user) {
@@ -859,7 +897,7 @@ function drawAdmin() {
       '<div class="sub-top"><span class="st st-' + esc(s.status) + '">' + esc(stLabel) + '</span><b>' + esc(s.code || "") + '</b><span>' + esc(fmtTime(s.ts)) + '</span>' + (s.source === "admin" ? '<span>(Owner ne jodi)</span>' : '') + '</div>' +
       '<h3>' + esc(TYPE_LABEL[s.type] || s.type) + ' - ' + esc(LOC_LABEL[s.location] || s.location) + (s.area ? ", " + esc(s.area) : "") + '</h3>' +
       '<p class="who">👤 ' + esc(s.name) + (s.mobile ? ' &nbsp; 📞 ' + esc(s.mobile) : '') + '</p>' +
-      '<p class="meta">' + (s.purpose === "rent" ? "Kiraye par dena hai" : "Bechna hai") + (s.size ? " · 📐 " + esc(s.size) : "") + (s.price ? " · 💰 " + esc(s.price) : "") + '</p>' +
+      '<p class="meta">Bechna hai' + (s.size ? " · 📐 " + esc(s.size) : "") + (s.price ? " · 💰 " + esc(s.price) : "") + '</p>' +
       (s.details ? '<p class="meta">' + esc(s.details) + '</p>' : '') +
       (ph.length ? '<div class="thumbs">' + ph.map(function (p, i) { return '<div class="thumb" data-v="' + i + '"><img src="' + p + '" alt="photo"></div>'; }).join("") + '</div>' : '<p class="meta">📷 Photo nahi di gayi</p>') +
       '<div class="acts">' +
@@ -890,17 +928,17 @@ $("admSearch").addEventListener("input", drawAdmin);
 $("admSort").addEventListener("change", drawAdmin);
 
 /* ---------- Editor modal ---------- */
-function defTitle(type, loc, purpose, area) { return (TYPE_LABEL[type] || "Property") + (purpose === "rent" ? " (Kiraye par)" : "") + " - " + (LOC_LABEL[loc] || "") + (area ? ", " + area : ""); }
+function defTitle(type, loc, area) { return (TYPE_LABEL[type] || "Property") + " - " + (LOC_LABEL[loc] || "") + (area ? ", " + area : ""); }
 function openEditor(mode, s) {
   adm.mode = mode; adm.editing = s || null; $("editErr").textContent = "";
   $("editSeller").hidden = mode !== "add";
   $("editTitleH").textContent = mode === "add" ? "Nayi Property Jodein" : "Property Website par Lagayein";
   $("editNote").textContent = mode === "add" ? "Aapki apni property seedhe website par lag jaayegi." : "Seller ka naam aur mobile website par nahi dikhega. Zaroorat ho to title ya price badal dein.";
-  var d = s || { type: "residential", location: "tonk", purpose: "buy", area: "", size: "", price: "", details: "", photos: [] };
-  $("eType").value = d.type; $("eLocation").value = d.location; $("ePurpose").value = d.purpose === "rent" ? "rent" : "buy";
+  var d = s || { type: "residential", location: "tonk", area: "", size: "", price: "", details: "", photos: [] };
+  $("eType").value = d.type; $("eLocation").value = LOC_LABEL[d.location] ? d.location : "tonk";
   $("eArea").value = d.area || ""; $("eSize").value = d.size || "";
-  $("eTitle").value = d.title || defTitle(d.type, d.location, d.purpose, d.area);
-  $("ePrice").value = d.pricePublic || (d.price ? (d.purpose === "rent" ? "Rent: " : "Price: ") + d.price : (d.purpose === "rent" ? "Rent: WhatsApp par poochhein" : "Price: WhatsApp par poochhein"));
+  $("eTitle").value = d.title || defTitle(d.type, $("eLocation").value, d.area);
+  $("ePrice").value = d.pricePublic || (d.price ? "Price: " + d.price : "Price: WhatsApp par poochhein");
   $("eDesc").value = d.desc || d.details || "";
   $("eName").value = ""; $("eMobile").value = "";
   editPP.set(d.photos);
@@ -914,27 +952,28 @@ $("editForm").addEventListener("submit", async function (e) {
   try {
     var db = await DBready, area = $("eArea").value.trim(), loc = $("eLocation").value;
     var pub = {
-      title: $("eTitle").value.trim(), type: $("eType").value, purpose: $("ePurpose").value, location: loc,
+      title: $("eTitle").value.trim(), type: $("eType").value, purpose: "buy", location: loc,
       place: (LOC_LABEL[loc] || "") + (area ? ", " + area : ""), size: $("eSize").value.trim(),
       price: $("ePrice").value.trim(), desc: $("eDesc").value.trim(), photos: editPP.get()
     };
     var id, code, ts;
     if (adm.mode === "add") {
       code = "NK-" + Math.random().toString(36).slice(2, 6).toUpperCase(); ts = Date.now();
-      id = await db.submit({ code: code, status: "approved", source: "admin", ts: ts, name: $("eName").value.trim() || "NK Properties", mobile: digits($("eMobile").value), purpose: pub.purpose, type: pub.type, location: loc, area: area, size: pub.size, price: "", details: pub.desc, photos: pub.photos, title: pub.title, pricePublic: pub.price, desc: pub.desc });
+      id = await db.submit({ code: code, status: "approved", source: "admin", ts: ts, name: $("eName").value.trim() || "NK Properties", mobile: digits($("eMobile").value), purpose: "buy", type: pub.type, location: loc, area: area, size: pub.size, price: "", details: pub.desc, photos: pub.photos, title: pub.title, pricePublic: pub.price, desc: pub.desc });
     } else {
       var s = adm.editing; id = s.id; code = s.code; ts = s.ts || Date.now();
     }
     pub.code = code; pub.ts = ts;
     await db.publish(id, pub);
     if (adm.mode !== "add") {
-      await db.saveSubmission(id, { status: "approved", title: pub.title, type: pub.type, purpose: pub.purpose, location: loc, area: area, size: pub.size, pricePublic: pub.price, desc: pub.desc, photos: pub.photos });
+      await db.saveSubmission(id, { status: "approved", title: pub.title, type: pub.type, purpose: "buy", location: loc, area: area, size: pub.size, pricePublic: pub.price, desc: pub.desc, photos: pub.photos });
     }
     $("editBg").hidden = true; toast("✅ Property website par lag gayi.");
   } catch (err) { console.error(err); $("editErr").textContent = "Save nahi hua: " + (err.name === "QuotaExceededError" ? "browser mein jagah kam hai, kam photo lagayein." : (err.message || err)); }
   btn.disabled = false;
 });
 
+render();
 route();
 </script>
 </body>
